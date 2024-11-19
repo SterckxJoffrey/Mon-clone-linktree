@@ -38,7 +38,7 @@ html, body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    animation: moveBackground 15s linear infinite;
+    animation: moveBackground 30s linear infinite;
     z-index: -1;
 }
 
@@ -47,8 +47,11 @@ html, body {
     0% {
         transform: translateX(0);
     }
-    100% {
+    50%{
         transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
     }
 }
 
@@ -138,10 +141,10 @@ footer:active {
     text-align: center;
     justify-content: space-between;
     text-decoration: none;
-    border-style: double;
+    border-style: solid;
     margin: 3vh;
-    padding: 2vh 6vw;
-    border-radius: 20%
+    padding: 2.5vh 6vw;
+    border-radius: 30px
 }
 
 .button a:active {
@@ -305,17 +308,6 @@ footer:active {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 .images-container {
     text-align: center;
     padding: 3vh 2vw;
@@ -323,13 +315,13 @@ footer:active {
     border-radius: 1vw;
     margin: 3vh;
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.976);
-    animation: battement 2s infinite cubic-bezier(.66, 0, 0, 1);
+    animation: battement 1.5s infinite cubic-bezier(.66, 0, 0, 1);
     text-decoration: none;
 }
 
 @keyframes battement {
     to {
-        box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
     }
 }
 
