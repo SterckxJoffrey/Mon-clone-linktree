@@ -27,5 +27,5 @@ Voici la structure des fichiers et dossiers du projet :
 
 ├── index.html          # Fichier principal HTML
 ├── style.css           # Fichier de styles CSS
-├── documents/            # Contient les images, icônes et autres médias
+├── documents/           # Contient les images, icônes 
 └── README.md           # Documentation du projet
