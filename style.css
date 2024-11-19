@@ -1,126 +1,168 @@
-body{
-    font-family:"Orbitron", sans-serif ;
-    max-height: 100%;
-    overflow: hidden; /*permet de rendre la page non-scrollable*/
-    background: url(https://static.vecteezy.com/ti/vecteur-libre/p1/1857028-futuriste-ville-paysage-futur-theme-concept-fond-vectoriel.jpg);
-    animation: gradient 30s linear infinite;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@keyframes gradient { /* animation pour faire bouger la background-image*/
+/* Ajuster la taille de l'écran */
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Empêche le scroll */
+}
+
+/* Conteneur principal */
+.background {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 0;
+    padding: 5vh 5vw; /* Padding proportionnel */
+}
+
+/* Image de fond animée */
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    background-image: url('https://static.vecteezy.com/ti/vecteur-libre/p1/1857028-futuriste-ville-paysage-futur-theme-concept-fond-vectoriel.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: moveBackground 15s linear infinite;
+    z-index: -1;
+}
+
+/* Animation de déplacement */
+@keyframes moveBackground {
     0% {
-        background-position: 25% 50%;
-    }
-    50% {
-        background-position: 75% 50%;
+        transform: translateX(0);
     }
     100% {
-        background-position: 25% 50%;
+        transform: translateX(-50%);
     }
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-    
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 5vh; /* Padding proportionnel */
+    padding-bottom: 5vh; /* Padding proportionnel */
+    z-index: 5;
 }
 
-footer{
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 2.5vh;
     color: white;
     text-align: center;
-    margin: 10px;   
-}
-footer:hover{ /*micro-actions lorsque la souris vas sur le pied de page*/
-    background: linear-gradient(45deg, rgb(90, 178, 245), rgb(124, 1, 124));
+    padding: 2vh 0; /* Padding proportionnel */
+    z-index: 10;
 }
 
-.nav_bar{
+footer:active {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+}
+
+.nav_bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 2.5vh;
     display: flex;
     justify-content: space-around;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    align-items: center;    
+    padding: 2vh 2vw; /* Padding proportionnel */
+    
+    z-index: 10;
 }
 
-.nav_bar a{
+.nav_bar a {
     text-decoration: none;
-    color: #fff; 
-}
-
-.nav_bar :hover{ /*micro-actions lorsque la souris vas sur les liens de la barre de navigation*/
-    font-weight: bold;
-    color:aqua;
+    color: #fff;
 }
 
 .title {
-    font-size: 0.8rem;
+    font-size: 2vh; /* Taille proportionnelle */
     text-align: center;
-    margin: 0.05rem;
-    color: #fff; 
+    margin: 1vh 0;
+    color: #fff;
 }
-
 
 .subtitle {
     text-align: center;
-    color : white;
-    margin: 0.05rem;
-    font-size: 0.6rem;
-    
+    color: white;
+    margin: 1vh 0;
+    font-size: 2vh; /* Taille proportionnelle */
 }
 
 .image {
-    width: 100%;              /* largeur de container */
-    max-width: 9.375rem;        
-    height: 9.375rem;          
-    margin: 0.4rem;
-    
-    border-radius: 100%;
-    display: flex;           
+    width: 100px;
+    height: 100px;
+    margin: 2vh;
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;        /* cache l'overflow si l'image est trop grande */
+    overflow: hidden;
 }
 
 .image img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain; 
-    transition: transform 0.3s ease;    
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
-.image:hover{ /*micro-actions pour qu'au survol l'image s'agrandisse et aie des bords carré*/
-    transform: scale(1.3); 
+
+.image:active {
+    transform: scale(1.3);
     border-radius: 0%;
 }
+
 .button a {
     display: block;
     text-align: center;
     justify-content: space-between;
-    text-decoration: none; 
-    border-style:double;
-    margin: 10px;
-    padding: 20px 60px 20px 60px;
-    border-radius: 20px;
-
+    text-decoration: none;
+    border-style: double;
+    margin: 3vh;
+    padding: 2vh 6vw;
+    border-radius: 20%
 }
-.button a:active { /*micro-actions pour qu'au click le bouton diminue de tailler*/
+
+.button a:active {
     transform: scale(0.90);
 }
 
-.button img { /*Image qui se trouve dans les bouttons*/
+.button img {
     float: left;
-    margin-right: 8px; 
+    margin-right: 2vw;
 }
 
 .images-container {
-    display: flex;                  /* Flexbox pour aligner les images en ligne */
-    justify-content: center;        /* Centrer les images dans le conteneur */
-    gap : 10px;                      /* Espace entre les images */
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
     flex-wrap: wrap;
+    padding: 2vh 0;
 }
 
-.images-container img{
-    border-radius: 100%; 
+.images-container img {
+    border-radius: 50%;
 }
 
 .playlist-link {
@@ -128,10 +170,10 @@ footer:hover{ /*micro-actions lorsque la souris vas sur le pied de page*/
     display: inline-flex;
     align-items: center;
     text-decoration: none;
-    color: #1DB954; /* Couleur Spotify */
+    color: #1DB954;
     background-color: #fff;
 }
-/* Conteneur des notes de musique */
+
 .music-notes {
     position: absolute;
     top: 0;
@@ -141,30 +183,45 @@ footer:hover{ /*micro-actions lorsque la souris vas sur le pied de page*/
     pointer-events: none;
 }
 
-/* Style des notes de musique */
 .note {
     position: absolute;
-    font-size: 20px;
+    font-size: 2vh; /* Taille proportionnelle */
     color: black;
     animation: float-up 2s ease-in-out infinite;
     opacity: 0;
 }
 
-.note:nth-child(1) { left: -10px; animation-delay: 0s; }
-.note:nth-child(2) { left: 10px; animation-delay: 1.2s; }
-.note:nth-child(3) { left: -20px; animation-delay: 3.4s; }
-
-/* Animation pour faire monter et disparaître les notes */
-@keyframes float-up {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-30px); opacity: 0; }
+.note:nth-child(1) {
+    left: -2vw;
+    animation-delay: 0s;
 }
 
-/* Rendre les notes visibles au survol */
+.note:nth-child(2) {
+    left: 2vw;
+    animation-delay: 1.2s;
+}
+
+.note:nth-child(3) {
+    left: -4vw;
+    animation-delay: 3.4s;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-3vh);
+        opacity: 0;
+    }
+}
+
 .playlist-link:hover .music-notes {
     opacity: 1;
 }
 
+/* Styles similaires pour les autres liens de réseaux sociaux... */
 .linkedin-link {
     position: relative;
     display: inline-flex;
@@ -186,19 +243,19 @@ footer:hover{ /*micro-actions lorsque la souris vas sur le pied de page*/
 /* Style des émojis de malette */
 .case {
     position: absolute;
-    font-size: 20px;
+    font-size: 2vh;
     animation: float-up 2s ease-in-out infinite;
     opacity: 0;
 }
 
-.case:nth-child(1) { left: -10px; animation-delay: 0s; }
-.case:nth-child(2) { left: 10px; animation-delay: 1.2s; }
-.case:nth-child(3) { left: -20px; animation-delay: 3.4s; }
+.case:nth-child(1) { left: -2vw; animation-delay: 0s; }
+.case:nth-child(2) { left: 2vw; animation-delay: 1.2s; }
+.case:nth-child(3) { left: -4vw; animation-delay: 3.4s; }
 
 /* Animation pour faire monter et disparaître les malette */
 @keyframes float-up {
     0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-30px); opacity: 0; }
+    100% { transform: translateY(-3vh); opacity: 0; }
 }
 
 /* Rendre les malette visibles au survol */
@@ -227,20 +284,19 @@ footer:hover{ /*micro-actions lorsque la souris vas sur le pied de page*/
 /* Style des émojis d'ordinateur */
 .computer {
     position: absolute;
-    font-size: 20px;
-    
+    font-size: 2vh;
     animation: float-up 2s ease-in-out infinite;
     opacity: 0;
 }
 
-.computer:nth-child(1) { left: -10px; animation-delay: 0s; }
-.computer:nth-child(2) { left: 10px; animation-delay: 1.2s; }
-.computer:nth-child(3) { left: -20px; animation-delay: 3.4s; }
+.computer:nth-child(1) { left: -2vw; animation-delay: 0s; }
+.computer:nth-child(2) { left: 2vw; animation-delay: 1.2s; }
+.computer:nth-child(3) { left: -4vw; animation-delay: 3.4s; }
 
 /* Animation pour faire monter et disparaître les émojis d'ordinateur*/
 @keyframes float-up {
     0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-30px); opacity: 0; }
+    100% { transform: translateY(-3vh); opacity: 0; }
 }
 
 /* Rendre les ordinateur visibles au survol */
@@ -248,54 +304,45 @@ footer:hover{ /*micro-actions lorsque la souris vas sur le pied de page*/
     opacity: 1;
 }
 
-.images-container { /*container d'image de logo*/
+
+
+
+
+
+
+
+
+
+
+
+
+.images-container {
     text-align: center;
-    padding: 12px 10px;
+    padding: 3vh 2vw;
     color: #fff;
-    border-radius: 5px;
-    margin: 15px;
+    border-radius: 1vw;
+    margin: 3vh;
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.976);
     animation: battement 2s infinite cubic-bezier(.66, 0, 0, 1);
     text-decoration: none;
-  }
+}
 
-  @keyframes battement { /*animation autour des logos*/
+@keyframes battement {
     to {
-      box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.1);
     }
-  }
+}
 
-  .defilement p {
+.defilement p {
     animation: defile 10s ease;
-  }
-  
-  @keyframes defile { /*animation pour faire défiler le texte du footer*/
+}
 
-    0% { transform: translateX(-100%); }
-    100% { transform:translateX(0%)}
-  }
-
-  @media only screen and (min-width : 500px){ /*Media Queries pour les écrans de plus de 500px pour que tout soit afficher à l'écran*/
-    /* Styles pour cette Media Queries */
-    .image {
-        margin: 0.2rem;
+@keyframes defile {
+    0% {
+        transform: translateX(-100%);
     }
-
-    .nav_bar{ 
-        margin-bottom: 0rem;     
+    100% {
+        transform: translateX(0%);
     }
-
-    .button a {
-        padding: 15px 60px 15px 60px; 
-    }
-
-    }
-
- 
-
-
-
-
-  
-  
+}
 
