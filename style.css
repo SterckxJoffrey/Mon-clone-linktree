@@ -149,6 +149,7 @@ footer:active {
 
 .button a:active {
     transform: scale(0.90);
+    background-color: rgb(186, 185, 185);
 }
 
 .button img {
