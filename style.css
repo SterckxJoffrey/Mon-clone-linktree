@@ -110,7 +110,7 @@ footer:active {
     text-align: center;
     color: white;
     margin: 1vh 0;
-    font-size: 2vh; /* Taille proportionnelle */
+    font-size: 1.5vh; /* Taille proportionnelle */
 }
 
 .image {
@@ -307,7 +307,6 @@ footer:active {
 .github-link:hover .computer-emoji {
     opacity: 1;
 }
-
 
 .images-container {
     text-align: center;
