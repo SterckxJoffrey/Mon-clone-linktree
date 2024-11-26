@@ -9,6 +9,7 @@ Bienvenue dans mon projet de **clone Linktree**, conçu avec un thème futuriste
 Le design futuriste de ce clone intègre :
 - Des couleurs néon (comme le bleu électrique, le violet, ou le rose vibrant).
 - Des animations
+- Des micro-actions
 - Une mise en page propre et responsive pour s'adapter aux écrans desktop et mobiles.
   
 ---
