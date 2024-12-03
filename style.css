@@ -1,21 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Orbitron", serif;
 }
-
 /* Ajuster la taille de l'écran */
 html, body {
     height: 100%;
     width: 100%;
     overflow: hidden; /* Empêche le scroll */
-    /*height: 100vh; */
-
 }
-
 /* Conteneur principal */
 .background {
     height: 100vh;
@@ -30,24 +25,20 @@ html, body {
     z-index: 0;
     padding: 5vh 5vw; /* Padding proportionnel */
 }
-
 /* Image de fond animée */
 .background::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 200%;
-    background-image: url('https://static.vecteezy.com/ti/vecteur-libre/p1/1857028-futuriste-ville-paysage-futur-theme-concept-fond-vectoriel.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 200%; /* Plus large pour un mouvement plus fluide */
+    height: 100%; /* Toujours couvrir la hauteur */
+    background: url('https://static.vecteezy.com/ti/vecteur-libre/p1/1857028-futuriste-ville-paysage-futur-theme-concept-fond-vectoriel.jpg') 
+                center / cover no-repeat;
     animation: moveBackground 30s linear infinite;
     z-index: -1;
 }
-
-/* Animation de déplacement */
+/* Animation pour déplacer l'image */
 @keyframes moveBackground {
     0% {
         transform: translateX(0);
@@ -59,18 +50,15 @@ html, body {
         transform: translateX(0);
     }
 }
-
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding-top: 5vh; /* Padding proportionnel */
-    padding-bottom: 5vh; /* Padding proportionnel */
+    padding: 5vh 0; /* Padding proportionnel */
     z-index: 5;
 }
-
 footer {
     position: fixed;
     bottom: 0;
@@ -81,45 +69,40 @@ footer {
     padding: 2vh 0; /* Padding proportionnel */
     z-index: 10;
 }
-
 footer:active {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6, 0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
 }
-
 .nav_bar {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; /* Aligne la barre en haut de la page */
+    left: 0; /* Commence depuis le bord gauche */
     width: 100%;
     font-size: 0.7rem;
     display: flex;
     justify-content: space-around;
-    padding: 2vh 2vw; /* Padding proportionnel */
+    padding: 2vh 2vw;
     z-index: 10;
 }
-
 .nav_bar a {
     text-decoration: none;
     color: #fff;
+    transition: font-weight 0.2s ease;
 }
-.nav_bar a:hover{
+.nav_bar a:hover {
     font-weight: bold;
 }
-
 .title {
-    font-size: 0.8rem; /* Taille proportionnelle */
+    font-size: 0.8rem; 
     text-align: center;
     margin: 1vh 0;
     color: #fff;
 }
-
 .subtitle {
     text-align: center;
     color: white;
     margin: 1vh 0;
-    font-size: 0.6rem; /* Taille proportionnelle */
+    font-size: 0.6rem; 
 }
-
 .image {
     width: 100px;
     height: 100px;
@@ -130,19 +113,15 @@ footer:active {
     align-items: center;
     overflow: hidden;
 }
-
 .image img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: transform 0.3s ease;
 }
-
 .image:active {
     transform: scale(1.3);
     border-radius: 0%;
 }
-
 .button a {
     display: block;
     text-align: center;
@@ -153,17 +132,14 @@ footer:active {
     padding: 2.5vh 6vw;
     border-radius: 30px
 }
-
 .button a:active {
     transform: scale(0.90);
     background: linear-gradient(90deg, #ff24ed, #2c75ff)
 }
-
 .button img {
     float: left;
     margin-right: 2vw;
 }
-
 .images-container {
     display: flex;
     justify-content: center;
@@ -171,171 +147,99 @@ footer:active {
     flex-wrap: wrap;
     padding: 2vh 0;
 }
-
 .images-container img {
     border-radius: 50%;
 }
-
-.playlist-link {
+/* Variables globales */
+:root {
+    --color-spotify: #1DB954;
+    --color-linkedin: #4aa9f2;
+    --color-github: black;
+    --bg-color: #fff;
+    --animation-duration: 2s;
+    --float-distance: 3vh;
+    --emoji-size: 1rem;
+}
+/* Styles génériques */
+.link {
     position: relative;
     display: inline-flex;
     align-items: center;
     text-decoration: none;
-    color: #1DB954;
-    background-color: #fff;
+    background-color: var(--bg-color);
+    color: inherit; /* Couleur héritée pour chaque lien */
 }
-
-.music-notes {
+.emoji-container {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.3s ease-in-out; /* Pour une transition fluide */
 }
-
-.note {
+.emoji {
     position: absolute;
-    font-size: 1rem; /* Taille proportionnelle */
-    color: black;
-    animation: float-up 2s ease-in-out infinite;
+    font-size: var(--emoji-size);
+    animation: none; /* Désactive l'animation par défaut */
     opacity: 0;
 }
-
-.note:nth-child(1) {
-    left: -2vw;
-    animation-delay: 0s;
+/* Activer l'animation au survol */
+.link:hover .emoji-container {
+    opacity: 1;
 }
-
-.note:nth-child(2) {
-    left: 2vw;
-    animation-delay: 1.2s;
+.link:hover .emoji {
+    animation: float-up var(--animation-duration) ease-in-out infinite;
+    opacity: 1; /* Nécessaire pour afficher les émojis */
 }
-
-.note:nth-child(3) {
-    left: -4vw;
-    animation-delay: 3.4s;
-}
-
+.emoji:nth-child(1) { left: -2rem; }
+.emoji:nth-child(2) { left: 2rem; }
+.emoji:nth-child(3) { left: -4rem;}
+/* Animation */
 @keyframes float-up {
     0% {
         transform: translateY(0);
         opacity: 1;
     }
     100% {
-        transform: translateY(-3vh);
+        transform: translateY(calc(-1 * var(--float-distance)));
         opacity: 0;
     }
 }
-
-.playlist-link:hover .music-notes {
-    opacity: 1;
+/* Styles spécifiques */
+.playlist-link {
+    color: var(--color-spotify);
 }
-
-/* Styles similaires pour les autres liens de réseaux sociaux... */
 .linkedin-link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: #4aa9f2; /* Couleur linkedin */
-    background-color: #fff;
+    color: var(--color-linkedin);
 }
-/* Conteneur des émojis de malette */
-.case-emoji {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Style des émojis de malette */
-.case {
-    position: absolute;
-    font-size: 1rem;
-    animation: float-up 2s ease-in-out infinite;
-    opacity: 0;
-}
-
-.case:nth-child(1) { left: -2vw; animation-delay: 0s; }
-.case:nth-child(2) { left: 2vw; animation-delay: 1.2s; }
-.case:nth-child(3) { left: -4vw; animation-delay: 3.4s; }
-
-/* Animation pour faire monter et disparaître les malette */
-@keyframes float-up {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-3vh); opacity: 0; }
-}
-
-/* Rendre les malette visibles au survol */
-.linkedin-link:hover .case-emoji {
-    opacity: 1;
-}
-
 .github-link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    background-color: #fff;
-}
-/* Conteneur des émojis d'ordinateur */
-.computer-emoji {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Style des émojis d'ordinateur */
-.computer {
-    position: absolute;
-    font-size: 1rem;
-    animation: float-up 2s ease-in-out infinite;
-    opacity: 0;
-}
-
-.computer:nth-child(1) { left: -2vw; animation-delay: 0s; }
-.computer:nth-child(2) { left: 2vw; animation-delay: 1.2s; }
-.computer:nth-child(3) { left: -4vw; animation-delay: 3.4s; }
-
-/* Animation pour faire monter et disparaître les émojis d'ordinateur*/
-@keyframes float-up {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-3vh); opacity: 0; }
-}
-
-/* Rendre les ordinateur visibles au survol */
-.github-link:hover .computer-emoji {
-    opacity: 1;
+    color: var(--color-github);
 }
 
 .images-container {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+    padding: 3vh 2vw; /* Fusion des paddings */
     text-align: center;
-    padding: 3vh 2vw;
     color: #fff;
-    border-radius: 100%;
+    border-radius: 100%; /* Arrondi total */
     margin: 3vh;
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.976);
     animation: battement 1.5s infinite cubic-bezier(.66, 0, 0, 1);
     text-decoration: none;
 }
-
-@keyframes battement {
-    to {
-        box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
-    }
+.images-container img {
+    border-radius: 50%; /* Arrondi pour les images */
 }
-
+@keyframes battement {
+    to { box-shadow: 0 0 0 30px rgba(0, 0, 0, 0); }
+}
 .defilement p {
     animation: defile 10s ease;
 }
-
 @keyframes defile {
     0% {
         transform: translateX(-100%);
