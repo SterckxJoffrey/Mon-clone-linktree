@@ -124,7 +124,7 @@ footer:active {
     width: 100px;
     height: 100px;
     margin: 2vh;
-    border-radius: 50%;
+    border-radius: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,7 +156,7 @@ footer:active {
 
 .button a:active {
     transform: scale(0.90);
-    background-color: rgb(186, 185, 185);
+    background: linear-gradient(90deg, #ff24ed, #2c75ff)
 }
 
 .button img {
@@ -319,7 +319,7 @@ footer:active {
     text-align: center;
     padding: 3vh 2vw;
     color: #fff;
-    border-radius: 20%;
+    border-radius: 100%;
     margin: 3vh;
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.976);
     animation: battement 1.5s infinite cubic-bezier(.66, 0, 0, 1);
