@@ -7,9 +7,9 @@
 }
 /* Ajuster la taille de l'écran */
 html, body {
-    height: 100%;
-    width: 100%;
-     /* Empêche le scroll */
+    max-height: 80%;
+    width: 80%;
+    
 }
 /* Conteneur principal */
 .background {
