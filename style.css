@@ -217,7 +217,7 @@ footer:active {
     width: 3.5rem;
 }
 @keyframes battement {
-    to { box-shadow: 0 0 0 15px rgba(0, 0, 0, 0); }
+    to { box-shadow: 0 0 0 0.6rem rgba(0, 0, 0, 0); }
 }
 .defilement p {
     animation: defile 10s ease;
