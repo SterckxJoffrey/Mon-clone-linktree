@@ -96,8 +96,8 @@ footer:active {
     font-size: 0.6rem; 
 }
 .image {
-    width: 8.25rem; /* voir si taille convient */
-    height: 8.25rem;
+    width: 7.25rem; /* voir si taille convient */
+    height: 7.25rem;
     margin: 1rem;
     border-radius: 40%;
     display: flex;
