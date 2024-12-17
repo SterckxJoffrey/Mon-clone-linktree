@@ -7,7 +7,7 @@
 }
 /* Ajuster la taille de l'écran */
 html, body {
-    height: 100%;
+    max-height: 100%;
     width: 100%;
     overflow: hidden;
 }
@@ -23,6 +23,7 @@ html, body {
     text-align: center;
     color: white;
     z-index: 0;
+    padding: 5vh 5vw; /* Padding proportionnel */
 }
 /* Image de fond animée */
 .background::before {
@@ -48,8 +49,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5vh 5vw; /* Padding proportionnel */
-    z-index: 5; 
+    /*max-height: 100%;*/
+    padding: 5vh 0; /* Padding proportionnel */
+    z-index: 5;
+
 }
 footer {
     position: fixed;
@@ -193,19 +196,23 @@ footer:active {
 .github-link {
     color: var(--color-github);
 }
+
 .images-container {
     display: flex;
     justify-content: center;
     gap: 2vw;
     flex-wrap: wrap;
-    padding: 1rem 2rem; 
+    padding: 1rem 2rem; /* Fusion des paddings */
     text-align: center;
+    color: #fff;
+    border-radius: 100%; /* Arrondi total */
     margin: 1rem;
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.976);
     animation: battement 1.5s infinite cubic-bezier(0.7, 0, 0.3, 1);
+    text-decoration: none;
 }
 .images-container img {
-    border-radius: 50%;
+    border-radius: 50%; /* Arrondi pour les images */
     height: 3.5rem;
     width: 3.5rem;
 }
