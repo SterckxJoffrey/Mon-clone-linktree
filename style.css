@@ -52,7 +52,7 @@ main {
     /*max-height: 100%;*/
     padding: 5vh 0; /* Padding proportionnel */
     z-index: 5;
-
+    
 }
 footer {
     position: fixed;
