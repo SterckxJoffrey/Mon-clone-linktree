@@ -23,7 +23,6 @@ html, body {
     text-align: center;
     color: white;
     z-index: 0;
-    padding: 5vh 5vw; /* Padding proportionnel */
 }
 /* Image de fond animée */
 .background::before {
