@@ -48,6 +48,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5vh 5vw; /* Padding proportionnel */
     z-index: 5; 
 }
 footer {
