@@ -222,6 +222,8 @@ footer:active {
 }
 .images-container img {
     border-radius: 50%; /* Arrondi pour les images */
+    height: 3.5rem;
+    width: 3.5rem;
 }
 @keyframes battement {
     to { box-shadow: 0 0 0 30px rgba(0, 0, 0, 0); }
