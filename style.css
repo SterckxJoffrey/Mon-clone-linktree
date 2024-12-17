@@ -14,6 +14,7 @@ html, body {
     touch-action: manipulation;
     -webkit-text-size-adjust: 100%; /* Désactive l'ajustement automatique */
     text-size-adjust: 100%;
+    zoom: 1;
 }
 /* Conteneur principal */
 
