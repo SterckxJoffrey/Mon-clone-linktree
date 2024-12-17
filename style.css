@@ -7,9 +7,9 @@
 }
 /* Ajuster la taille de l'écran */
 html, body {
-    max-height: 80%;
-    width: 80%;
-    
+    max-height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 /* Conteneur principal */
 .background {
@@ -49,13 +49,14 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    /*max-height: 100%;*/
     padding: 5vh 0; /* Padding proportionnel */
     z-index: 5;
+    
 }
 footer {
     position: fixed;
-    bottom: 0;
+    bottom: 4%;
     width: 100%;
     font-size: 0.8rem;
     color: white;
@@ -95,9 +96,9 @@ footer:active {
     font-size: 0.6rem; 
 }
 .image {
-    width: 6.25rem;
-    height: 6.25rem;
-    margin: 2vh;
+    width: 8.25rem; /* voir si taille convient */
+    height: 8.25rem;
+    margin: 1rem;
     border-radius: 40%;
     display: flex;
     justify-content: center;
@@ -119,8 +120,8 @@ footer:active {
     justify-content: space-between;
     text-decoration: none;
     border-style: solid;
-    margin: 3vh;
-    padding: 1rem;
+    margin: 0.7rem;
+    padding: 0.7rem 2rem;
     border-radius: 30px
 }
 .button a:active {
@@ -136,7 +137,7 @@ footer:active {
     justify-content: center;
     gap: 2vw;
     flex-wrap: wrap;
-    padding: 2vh 0;
+    padding: 0 0;
 }
 .images-container img {
     border-radius: 50%;
