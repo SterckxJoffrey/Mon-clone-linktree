@@ -172,8 +172,8 @@ footer:active {
     animation: float-up var(--animation-duration) ease-in-out infinite;
     opacity: 1; /* Nécessaire pour afficher les émojis */
 }
-.emoji:nth-child(1) { left: -2rem; }
-.emoji:nth-child(2) { left: 2rem; }
+.emoji:nth-child(1) { left: 0rem; }
+.emoji:nth-child(2) { left: 3rem; }
 .emoji:nth-child(3) { left: -4rem;}
 /* Animation */
 @keyframes float-up {
